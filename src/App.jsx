@@ -1,7 +1,6 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import NavBar from "./components/NavBar";
 import PokemonCard from "./components/PokemonCard";
 
 function App() {
@@ -41,11 +40,12 @@ function App() {
   return (
     <>
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      {pokemonIndex > 0 && <button onClick={precedentClick}>Précédent</button>}
-
-      {pokemonIndex < pokemonList.length - 1 && (
-        <button onClick={suivantClick}>Suivant</button>
-      )}
+      <NavBar
+        pokemonIndex={pokemonIndex}
+        precedentClick={precedentClick}
+        suivantClick={suivantClick}
+        pokemonSize={pokemonList.length - 1}
+      />
     </>
   );
 }

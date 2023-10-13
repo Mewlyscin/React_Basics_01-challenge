@@ -1,11 +1,10 @@
-import PokemonCard from "./components/PokemonCard";
+import PokemonCard from "./PokemonCard";
 
-function button({ precedentClick, suivantClick }) {
+function NavBar({ pokemonIndex, precedentClick, suivantClick, pokemonSize }) {
   return (
     <>
-      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
       {pokemonIndex > 0 && <button onClick={precedentClick}>Précédent</button>}
-      {pokemonIndex < pokemonList.length - 1 && (
+      {pokemonIndex < pokemonSize && (
         <button onClick={suivantClick}>Suivant</button>
       )}
     </>
