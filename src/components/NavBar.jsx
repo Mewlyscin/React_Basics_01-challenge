@@ -1,13 +1,17 @@
-import PokemonCard from "./PokemonCard";
+import PropTypes from "prop-types";
 
-function NavBar({ pokemonIndex, precedentClick, suivantClick, pokemonSize }) {
+function NavBar({ pokemonList, pokemonIndex, setpokemonIndex }) {
+  const clickName = (pokena) => {
+    setpokemonIndex(pokemonList.indexOf(pokena));
+  };
   return (
-    <>
-      {pokemonIndex > 0 && <button onClick={precedentClick}>Précédent</button>}
-      {pokemonIndex < pokemonSize && (
-        <button onClick={suivantClick}>Suivant</button>
-      )}
-    </>
+    <div className="NavBar">
+      {pokemonList.map((pokena) => (
+        <button onClick={() => clickName(pokena)} key={pokena.name}>
+          {pokena.name}
+        </button>
+      ))}
+    </div>
   );
 }
 

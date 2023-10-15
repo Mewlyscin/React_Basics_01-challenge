@@ -5,12 +5,10 @@ import PokemonCard from "./components/PokemonCard";
 
 function App() {
   const [pokemonIndex, setpokemonIndex] = useState(0);
-  const precedentClick = () => {
-    setpokemonIndex(pokemonIndex - 1);
-  };
-  const suivantClick = () => {
-    setpokemonIndex(pokemonIndex + 1);
-  };
+  // const precedentClick = () => {
+  //   setpokemonIndex(pokemonIndex - 1);
+  // };
+
   const pokemonList = [
     {
       name: "bulbizarre",
@@ -39,13 +37,14 @@ function App() {
 
   return (
     <>
-      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
       <NavBar
+        pokemonList={pokemonList}
         pokemonIndex={pokemonIndex}
-        precedentClick={precedentClick}
-        suivantClick={suivantClick}
-        pokemonSize={pokemonList.length - 1}
+        setpokemonIndex={setpokemonIndex}
       />
+      <div>
+        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      </div>
     </>
   );
 }
