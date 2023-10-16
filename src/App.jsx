@@ -5,9 +5,6 @@ import PokemonCard from "./components/PokemonCard";
 
 function App() {
   const [pokemonIndex, setpokemonIndex] = useState(0);
-  // const precedentClick = () => {
-  //   setpokemonIndex(pokemonIndex - 1);
-  // };
 
   const pokemonList = [
     {
